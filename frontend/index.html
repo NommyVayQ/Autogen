@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yommy Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.2/300.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.2/400.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.2/600.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="logo">YC</div>
+        <h1 class="title">Yommy Chat</h1>
+        <div class="spacer"></div>
+        <button id="settings" class="icon-btn" title="设置">⚙️</button>
+      </header>
+      <main class="main">
+        <div class="card">
+          <div id="messages" class="messages"></div>
+          <div class="input-bar">
+            <textarea id="input" rows="2" placeholder="输入你的消息，Enter 发送，Shift+Enter 换行"></textarea>
+            <button id="send" class="primary-btn">发送</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
