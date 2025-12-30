@@ -8,7 +8,7 @@ root_dir = Path(__file__).resolve().parents[1]
 load_dotenv(dotenv_path=root_dir / ".env", override=True)
 
 def get_model_client():
-    model = os.getenv("MODEL_NAME") or os.getenv("MODEL") or "deepseek-chat"
+    model = os.getenv("MODEL") or "deepseek-chat"
     base_url = os.getenv("API_BASE_URL") or os.getenv("BASE_URL") or "https://api.deepseek.com/v1"
     api_key = os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY") or os.getenv("API_KEY") or ""
     if not api_key:

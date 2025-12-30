@@ -1,4 +1,5 @@
 import asyncio
+import os
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_core.models import UserMessage, SystemMessage, ModelFamily
 from dotenv import load_dotenv
@@ -8,8 +9,8 @@ load_dotenv()#读取env文件
 
 openai_model_client = OpenAIChatCompletionClient(
     model=os.getenv("MODEL", "deepseek-chat"),#若未设置MODEL环境变量，默认使用deepseek-chat
-    base_url=os.getenv("BASE_URL", "https://api.deepseek.com/v1"),#若未设置BASE_URL环境变量，默认使用https://api.deepseek.com/v1
-    api_key=os.getenv("API_KEY"),
+    base_url=os.getenv("API_BASE_URL") or os.getenv("BASE_URL", "https://api.deepseek.com/v1"),#若未设置BASE_URL环境变量，默认使用https://api.deepseek.com/v1
+    api_key=os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY") or os.getenv("API_KEY"),
     model_info={
         "vision": False,
         "function_calling": True,

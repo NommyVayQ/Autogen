@@ -42,7 +42,7 @@ async def generate_stream(message: str) -> AsyncGenerator[str, None]:
         )
         meta = {
             "meta": {
-                "model": os.getenv("MODEL_NAME") or os.getenv("MODEL") or "deepseek-chat",
+                "model": os.getenv("MODEL") or "deepseek-chat",
                 "base_url": os.getenv("API_BASE_URL") or os.getenv("BASE_URL") or "https://api.deepseek.com/v1",
                 "source": "AgentChat",
             }
@@ -83,7 +83,7 @@ async def chat_stream(req: ChatRequest):
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "model": os.getenv("MODEL_NAME", "unknown")}
+    return {"status": "ok", "model": os.getenv("MODEL", "unknown")}
 
 if __name__ == "__main__":
     import uvicorn
